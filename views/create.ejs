@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("partials/head");-%>
+<body>
+    <%-include("partials/nav");-%>
+    <main>
+        <div class="Create">
+         <form action="/blogs" method="POST">
+             <input type="text" placeholder="Meal Diet" name="diet" required/>
+             <input type="text" placeholder="Exercise" name="exercise" required/>
+             <input type="text" placeholder="Rest" name="rest" required/>
+            
+             <button type="submit">SUBMIT</button>
+         </form>
+        </div>
+    </main>
+    <%-include("partials/footer");-%>
+    <script src="/app.js"></script>
+</body>
+</html>

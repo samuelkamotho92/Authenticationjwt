@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("partials/head");-%>
+  <body>
+    <%-include("partials/nav");-%>
+    <main>
+      <%=title%>
+      <div class="home">
+        <img src="/about.png" alt="" />
+        <div class="headers">
+          <% if(blogs.length > 0){ %>
+             <%blogs.forEach(blog=>{ %>
+          <a class="items" href="/blogs/<%=blog._id%>">
+            <h3 class="title"><%=blog.diet%></h3>
+            <p class="snippet"><%=blog.exercise%></p>
+            <p class="snippet"><%=blog.rest%></p>
+          </a>
+          <% })%> <% } else{%>
+          <h1>ADD SOME BLOGS KINDLY</h1>
+          <% } %>
+        </div>
+      </div>
+    </main>
+    <%-include("partials/footer");-%>
+    <script src="/app.js"></script>
+  </body>
+</html>

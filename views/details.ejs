@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head")-%>
+<body>
+    <%-include("partials/nav");-%>
+    <main>
+        <%=title%>
+        <div class="home">
+            <img src="/about.png" alt="">
+            <div class="headers">
+    <h2 class=""><%=det.diet%></h2>
+    <div>
+        <p><%=det.exercise%></p>
+        <p><%=det.rest%></p>
+        <p><%=det._id%></p>
+        <a class="delete" data-doc="<%=det._id%>">DELETE</a>
+    </div>
+            </div>
+        </div>
+    </main>
+  <%-include("partials/footer");-%>
+  <script> 
+  const deletereq  = document.querySelector(".delete");
+  console.log(deletereq)
+  deletereq.addEventListener("click",function () {
+      console.log("clicked");
+      const endpoint = `/blogs/${deletereq.dataset.doc}` ;
+    console.log(endpoint);
+    fetch(endpoint,{
+        method:"DELETE",
+    }).then(resp=>{
+        //RESONSE WILL BE SENT BACK convert it into 
+        //return has brackets
+      return resp.json();
+    }).then(data=>{
+        //jandle the promise
+        window.location.href = data.redirect;
+    }).catch((err)=>{
+        console.log(err);
+    })
+  })
+</script>
+</body>
+
+</html>
